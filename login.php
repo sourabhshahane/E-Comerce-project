@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <body>
     <div class="wrapper" style="align-content: center;">
-        <img src="images/SHOP_BOX.png" width="150px">
+        <a href="home_u.php"><img src="images/SHOP_BOX.png" width="150px"></a>
         <div class="form-group">
             <h1>Welcome Back</h1>
             <p>Don't miss the opportunity to get stuffs handy!!</p>

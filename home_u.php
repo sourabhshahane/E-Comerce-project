@@ -74,7 +74,7 @@
     </div>
   </nav>
 
-  <h1>Welcome to our site.</h1>
+  <h1>Welcome to ShopBOX, Please <a href="register.php">Signup</a> / <a href="login.php">Login</a> to use all the features...</h1>
   
   <div class="w3-content w3-section" style="max-width:500px">
     <img class="mySlides w3-animate-right" src="images/logo_full.png" style="width:100%">

@@ -127,8 +127,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/ico" href="icons/logo_user_avatar_add.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <!---<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">--->
     <style type="text/css">
         body{ 
@@ -159,9 +161,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     </style>
 
-    	<img src="logo1.jpeg" width="100px" height="100px">
-        <h1>ShopMedz</h1>
-        <p>Create accout to <b>STAY HOME & STAY SAFE</b>.</p>
+    	<a href="home_u.php"><img src="images/shop_box.png" width="100px" height="100px"></a>
+        <p>Create an accout and <b>Enjoy online shopping at your FINGERTIPS</b>.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
                 <label>Name</label>
