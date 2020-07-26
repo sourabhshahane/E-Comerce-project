@@ -1,24 +1,19 @@
-<?php
-  // Include config file
-  require_once "config.php";
-  session_start();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopBOX</title>
+    <title>My Cart</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" type="image/ico" href="icons/logo_ico.png">
+    <link rel="icon" type="image/ico" href="icons/cart_logo_cir.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-    
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -29,7 +24,7 @@
         <li class="active"><a href="home_u.php">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <li><a href="all.php">All Purpose Cleaners</a></li>
+            <li><a href="all.php">All Purpose Cleaners</a></li>
             <li><a href="baby.php">Baby Bath & Hygiene</a></li>
             <li><a href="bath.php">Bath & Shower</a></li>
             <li><a href="chips.php">Chips,Namkeen & Snacks</a></li>
@@ -73,32 +68,8 @@
       </ul>
     </div>
   </nav>
-
-  <h1>Welcome to our site.</h1>
-  
-  <div class="w3-content w3-section" style="max-width:500px">
-    <img class="mySlides w3-animate-right" src="images/logo_full.png" style="width:100%">
-    <img class="mySlides w3-animate-right" src="images/1.JPG" style="width:100%">
-    <img class="mySlides w3-animate-right" src="images/2.jpg" style="width:100%">
-    <img class="mySlides w3-animate-right" src="images/3.jpg" style="width:100%">
-  </div>
-  
-  <script>
-  var myIndex = 0;
-  carousel();
-  
-  function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 2500);    
-  }
-  </script>
-  
+  <h1>
+      Sorry, You are not logged in to ShopBoX, Please <a href="login.php">Login</a> to your account or <a href="register.php">Signup</a> if you are not having a ShopBoX account
+  </h1>
 </body>
 </html>

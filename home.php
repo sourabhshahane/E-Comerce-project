@@ -29,7 +29,6 @@
         <li class="active"><a href="home.html">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li></li>
             <li><a href="all.php">All Purpose Cleaners</a></li>
             <li><a href="baby.php">Baby Bath & Hygiene</a></li>
             <li><a href="bath.php">Bath & Shower</a></li>
@@ -74,7 +73,7 @@
     </div>
   </nav>
 
-  <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to our site.</h1>
+  <h1>Hi, <b><?php echo htmlspecialchars($_SESSION['name']); ?></b>. Welcome to our site.</h1>
 
   <div class="w3-content w3-section" style="max-width:500px">
     <img class="mySlides w3-animate-right" src="images/logo_full.png" style="width:100%">

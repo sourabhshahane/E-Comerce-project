@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT user_id, username, password FROM user WHERE username = ?";
+        $sql = "SELECT user_id, name, username, password FROM user WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $user_id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $user_id, $name, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
@@ -61,7 +61,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["user_id"] = $user_id;
-                            $_SESSION["username"] = $username;                             
+                            $_SESSION["name"] = $name;
+                            $_SESSION["username"] = $username;
+                                                         
                             // Redirect user to welcome page
                             header("location: home.php");
                         } else{
@@ -93,6 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/ico" href="icons/logo_user_avatar.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -116,20 +119,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             margin-bottom: 10px;
             marker-bottom: 5px;
           }
-        .form-group{ 
-            text-align: center; 
+        .group{ 
+            display: flex;
+            align-items: center;
+            align-content: center;
+        }
+        .form-group{
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
     <div class="wrapper" style="align-content: center;">
+        <img src="images/SHOP_BOX.png" width="150px">
         <div class="form-group">
-            <img src="logo1.jpeg" height="100px">
             <h1>Welcome Back</h1>
             <p>Don't miss the opportunity to get stuffs handy!!</p>
         </div>
-        
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
@@ -147,7 +154,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </style>
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-
+            <br>
             <p style="text-align: center; ">Don't have an account? <a href="register.php">Sign up now</a>.</p>
         </form>
     </div>      
