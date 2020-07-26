@@ -74,7 +74,7 @@
     </div>
   </nav>
 
-  <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
+  <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to our site.</h1>
 
   <div class="w3-content w3-section" style="max-width:500px">
     <img class="mySlides w3-animate-right" src="images/logo_full.png" style="width:100%">
