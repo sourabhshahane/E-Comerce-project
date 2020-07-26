@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cart | ShopBox</title>
+    <title>My Cart</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" type="image/ico" href="icons/cart_logo_cir.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -57,7 +57,7 @@
             <li><a href="tea.php">Tea</a></li>
           </ul>
         </li>
-        <li><a href="cart.php">My Cart</a></li>
+        <li><a href="cart_u.html">My Cart</a></li>
         <li><a href="about us.html">About Us</a></li>
         <li><a href="contact us.html">Contact Us</a></li>
       </ul>
