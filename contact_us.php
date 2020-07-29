@@ -154,7 +154,7 @@
 	<b class="header" style="margin-left:300px;">or</b>
 	<br>
 	<br>
-	<span style="margin-left:50px; font-size: 30px;"> <img id = "call" src = "icons/call-sign.png"/> Call us on: <b style="color: rgb(37, 196, 23);">1800-000-7776 </b></span>
+	<span style="margin-left:50px; font-size: 30px;"  class="header"> <img id = "call" src = "icons/call-sign.png"/> Call us on: <b style="color: rgb(37, 196, 23);">1800-000-7776 </b></span>
 	<br>
 	<footer>
 		<hr style = "border: none #7FC8D3; width: 100%; height: 2px; background-color: #7FC8D3;">	
