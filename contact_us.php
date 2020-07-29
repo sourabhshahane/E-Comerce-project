@@ -64,6 +64,7 @@
 
 		.header{
 			font-size: 30px;
+            color: #EC1E78
 		}
 
 		.foot{
