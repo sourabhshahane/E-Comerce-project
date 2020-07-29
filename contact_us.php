@@ -1,25 +1,79 @@
-<?php
-  // Include config file
-  require_once "config.php";
-  session_start();
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cart | ShopBox</title>
+    <title>ShopBOX | We're always happy to help</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/ico" href="icons/logo_ico.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" type="image/ico" href="icons/cart_logo_cir.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	 <style> 
+		body{
+			background-image: url('images/contact-mobile.svg');
+			background-repeat:no-repeat; 
+			background-attachment: fixed; 
+			background-size: cover;
+		}
+
+		h1{
+			font: size 120%;
+			font-family:Times New Roman;
+			color: whitesmoke;
+			text-align:left;
+			position:static;
+			width:600px;
+			height:auto;
+			margin-left:220px;
+		}
+
+		#call{ 
+			margin-left:50px; 
+			height:50px; 
+			width:50px;
+			position:static;
+			vertical-align: middle;
+			}
+		
+		#head_img{
+			margin-left:400px;
+			height:150px; 
+			width:150px;
+			position:static;
+		}
+				
+		#mailings{
+			margin-left:150px; 
+			font-size:20px;
+			font-family: Times New Roman;
+			color:black;
+			position:static;
+			width:1500px;
+			height:auto;
+		}
+
+		#link{
+			color: rgb(37, 196, 23);
+		}
+		
+		footer{
+			clear: both;
+			position: relative;
+		}
+
+		.header{
+			font-size: 30px;
+		}
+
+		.foot{
+			text-align: center;
+            color: whitesmoke;
+		}
+		
+	 </style>
 </head>
 <body>
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -63,9 +117,9 @@
             <li><a href="categories/tea.php">Tea</a></li>
           </ul>
         </li>
-        <li class="active"><a href="cart.php">My Cart</a></li>
+        <li><a href="cart.php">My Cart</a></li>
         <li><a href="about_us.php">About Us</a></li>
-        <li><a href="contact_us.php">Contact Us</a></li>
+        <li class="active"><a href="contact_us.php">Contact Us</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -85,6 +139,26 @@
       </ul>
     </div>
   </nav>
-
+	<img id = "head_img" src = "icons/support-tickets.png"/>
+	<h1>Dear customer, Welcome to Help desk</h1>
+	<hr width="50%" style="margin-left: 100px; background-color: #66B54A; border: solid #EAC146; border-width: 1px; size: 5px;">
+	<p class = "header" style="margin-left:100px;">Mail us regarding your queries on</p>
+	<div id = "mailings">
+		<ul>
+			<li><p>Technical support: &nbsp; <a id = "link" href = "mailto:lagadprerana2000@gmail.com">lagadprerana2000@gmail.com</a></p></li>
+			<li><p>Order related Support: &nbsp; <a id = "link" href = "mailto:sanikazinjad0241@gmail.com">sanikazinjad0241@gmail.com</a></p></li>
+			<li><p>General queries: &nbsp; <a id = "link" target="_blank" href = "mailto:sourabhshahane865@gmail.com">sourabhshahane865@gmail</a></p></li>
+		</ul>	
+	</div>
+	<b class="header" style="margin-left:300px;">or</b>
+	<br>
+	<br>
+	<span style="margin-left:50px; font-size: 30px;"> <img id = "call" src = "icons/call-sign.png"/> Call us on: <b style="color: rgb(37, 196, 23);">1800-000-7776 </b></span>
+	<br>
+	<footer>
+		<hr style = "border: none #7FC8D3; width: 100%; height: 2px; background-color: #7FC8D3;">	
+		<p class="foot">Designed and developed by <b>Sanika Zinjad</b> and team, <b>All rights reserved <br> <br> ShopBOX.com 2020</b></p>
+	</footer>
 </body>
 </html>
+	 

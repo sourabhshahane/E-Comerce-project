@@ -123,13 +123,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign Up</title>
+    <title>Sign Up | ShopBox</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="icon" type="image/ico" href="icons/logo_user_avatar_add.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
     <!---<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">--->
     <style type="text/css">
@@ -138,31 +140,98 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             text-align: center;
             /*background-image: url("sign_bg.jpg");
             background-position: center;  background-repeat: no-repeat; 
-            background-size: cover;*/
-            background-image:linear-gradient( to bottom, #ffff99 0%, #66ff99 100%);
+            background-size: cover;
+            background-image:linear-gradient( to bottom, #ffff99 0%, #66ff99 100%);*/
         }
     </style>
 </head>
+
 <body>
-    
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="home.php"><span><img src="icons/logo_ico.png" width="30px" height="auto"> &nbsp ShopBox.com</span></a>
+      </div>
+      
+      <ul class="nav navbar-nav">
+        <li ><a href="home.php">Home</a></li>
+        <li ><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a href="categories/all.php">All Purpose Cleaners</a></li>
+            <li><a href="categories/baby.php">Baby Bath & Hygiene</a></li>
+            <li><a href="categories/bath.php">Bath & Shower</a></li>
+            <li><a href="categories/chips.php">Chips,Namkeen & Snacks</a></li>
+            <li><a href="categories/choco.php">Chocolates & Biscuits</a></li>
+            <li><a href="categories/choco_sweet">Chocolates & Sweets</a></li>
+            <li><a href="categories/cook.php">Cooking & Baking Needs</a></li>
+            <li><a href="categories/cook_sause.php">Cooking, Sauces & Vinegar</a></li>
+            <li><a href="categories/creams.php">Creams, Lotions & Skin Care</a></li>
+            <li><a href="categories/dals.php">Dals & Pulses</a></li>
+            <li><a href="categories/deos.php">Deos, Perfumes & Talc</a></li>
+            <li><a href="categories/deter.php">Detergents & Dishwash</a></li>
+            <li><a href="categories/drinks.php">Drinks & Beverages</a></li>
+            <li><a href="categories/frag.php">Fragrances & Deos</a></li>
+            <li><a href="categories/ghee.php">Ghee & Oils</a></li>
+            <li><a href="categories/grocery.php">Grocery & Gourmet Foods</a></li>
+            <li><a href="categories/hair.php">Hair Care</a></li>
+            <li><a href="categories/jams.php">Jams & Honey</a></li>
+            <li><a href="categories/makeup.php">Makeup</a></li>
+            <li><a href="categories/noodels.php">Noodles & Pasta</a></li>
+            <li><a href="categories/oral.php">Oral Care</a></li>
+            <li><a href="categories/pasta.php">Pasta, Soup & Noodles</a></li>
+            <li><a href="categories/pickles.php">Pickles & Chutney</a></li>
+            <li><a href="categories/ready.php">Ready To Cook</a></li>
+            <li><a href="categories/sauces.php">Sauces, Spreads & Dips</a></li>
+            <li><a href="categories/shoe.php">Shoe Polish</a></li>
+            <li><a href="categories/skin.php">Skin Care</a></li>
+            <li><a href="categories/snacks.php">Snacks, Dry Fruits, Nuts</a></li>
+            <li><a href="categories/soaps.php">Soaps & Body Wash</a></li>
+            <li><a href="categories/station.php">Stationery</a></li>
+            <li><a href="categories/tea.php">Tea</a></li>
+          </ul>
+        </li>
+        <li><a href="cart.php">My Cart</a></li>
+        <li><a href="about_us.php">About Us</a></li>
+        <li><a href="contact_us.php">Contact Us</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <?php 
+           if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        ?>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <?php
+        }
+        else{?>
+        
+        <li class="active"><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <?php
+        }
+        ?>
+      </ul>
+    </div>
+  </nav>
+
 <div class="wrapper">
+
     <style type="text/css">
-    body{ 
+    .wrapper{ 
         display: box;     
         box-align: center; 
-        border: 10px solid white;
+        border: 1px solid black;
         width: 500px;
         padding: 20px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
         margin-bottom: 10px;
-        marker-bottom: 5px;
     }
+
     </style>
 
-    	<a href="home_u.php"><img src="images/shop_box.png" width="100px" height="100px"></a>
-        <p>Create an accout and <b>Enjoy online shopping at your FINGERTIPS</b>.</p>
+    	<a href="home.php"><img src="images/shop_box.png" width="100px" height="100px"></a>
+        <p>Create an account and <b>Enjoy online shopping at your FINGERTIPS</b>.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
                 <label>Name</label>
@@ -198,9 +267,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" class="btn btn-primary" value="SIGN UP">
                 
             </div>
-            <style>body{ padding-top: 30px;}</style>
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
-</div>    
+</div>  
 </body>
 </html>
