@@ -1,3 +1,10 @@
+<?php
+  // Include config file
+  require_once "config.php";
+  session_start();
+
+?>
+
 <html>
 <head>
     <title>About us | ShopBOX</title>
@@ -134,9 +141,9 @@
         <li class = ""><a  href="contact_us.php">Contact Us</a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
+	  <ul class="nav navbar-nav navbar-right">
         <?php 
-           if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+           if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         ?>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         <?php

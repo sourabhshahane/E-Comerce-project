@@ -1,3 +1,10 @@
+<?php
+  // Include config file
+  require_once "config.php";
+  session_start();
+
+?>
+
 <html>
 <head>
     <title>ShopBOX | We're always happy to help</title>
