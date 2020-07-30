@@ -125,6 +125,7 @@
             <li><a href="categories/tea.php">Tea</a></li>
           </ul>
         </li>
+        <li><a href="my_orders.php">My Orders</a></li>
         <li><a href="cart.php">My Cart</a></li>
         <li><a href="about_us.php">About Us</a></li>
         <li class="active"><a href="contact_us.php">Contact Us</a></li>

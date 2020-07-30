@@ -2,7 +2,17 @@
   // Include config file
   require_once "config.php";
   session_start();
+  $connect = mysqli_connect('localhost','root','','shopbox');
 
+  if(isset($_GET["action"]))
+    {
+        if($_GET["action"] == "delete")
+        {
+            $qury = "DELETE FROM cart WHERE order_id=?";
+            $qury = str_replace("?", $_GET['order_id'], $qury);
+            mysqli_query($connect, $qury);
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +73,7 @@
             <li><a href="categories/tea.php">Tea</a></li>
           </ul>
         </li>
+        <li><a href="my_orders.php">My Orders</a></li>
         <li class="active"><a href="cart.php">My Cart</a></li>
         <li><a href="about_us.php">About Us</a></li>
         <li><a href="contact_us.php">Contact Us</a></li>
@@ -86,5 +97,84 @@
     </div>
   </nav>
 
+  <div>
+    <?php 
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
+    {
+        $uid = $_SESSION['user_id'];
+        $qury = "SELECT * FROM e_commerce_products INNER JOIN cart ON e_commerce_products.Product_id=cart.p_id AND cart.u_id=?";
+        $qury = str_replace("?", $uid, $qury);
+        $result = mysqli_query($connect, $qury);
+        if(mysqli_num_rows($result) > 0) 
+        {
+                ?>
+            
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                        <tr> 
+                            <th>Product image</th> 
+                            <th width="40%">Item Name</th>  
+                            <th width="10%">Quantity</th>  
+                            <th width="20%">Price</th>  
+                            <th width="15%">Total</th>  
+                            <th width="5%">Action</th>  
+                        </tr>  
+        <?php
+            $total = 0;  
+            $orders = array();
+            while($row = mysqli_fetch_array($result))
+            {
+                array_push($orders, $row['order_id']);
+        ?> 
+                        <tr>
+                            <td><img src="<?php echo $row['Image Urls'];?>" style="width: 100px;"></td>
+                            <td><?php echo $row['Product Title'];?></td>  
+                            <td><?php echo $row['quantity']; ?></td>  
+                            <td>₹ <?php echo $row['Price'];?></td>
+                            <td>₹ <?php echo number_format($row["quantity"] * $row["Price"],2);?></td>  
+                            <td><a href="cart.php?action=delete&order_id=<?php echo $row['order_id'];?>"><span class="btn btn-danger">Remove</span></a></td>
+                        </tr>
+                        <?php $total = $total + ($row["quantity"] * $row['Price']);   
+            }
+            ?>
+                        <tr>
+                            <td></td>
+                            <td></td>  
+                            <td></td>  
+                            <td><h2>Grand Total</h2></td>
+                            <td><h2>₹ <?php echo number_format($total);?></h2></td>  
+                            <td><a href="thanks.php?action=purchase&order_id=<?php 
+                            $i = 0;
+                            while($i < count($orders))
+                            {
+                                echo $orders[$i];
+                                if($i + 1 != count($orders))
+                                {
+                                    echo ",";
+                                }
+                                $i = $i + 1;
+                            }
+                            ?>"><span class="btn btn-success">Buy now</span></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>  
+    <?php
+        }
+        else 
+        {?>
+            <h1><?php echo "Your cart is empty.";?></h1>
+        <?php
+        }    
+    }
+    else 
+    {?>
+        <h1><?php echo "You are not logged in, Please login first.";?></h1>
+    <?php
+    }    
+    ?>
+
+    </div>
 </body>
 </html>
