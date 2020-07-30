@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <title>ShopBOX | We're always happy to help</title>
+    <title>We're always happy to help | ShopBOX</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/ico" href="icons/logo_ico.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>

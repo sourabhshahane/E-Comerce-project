@@ -5,7 +5,7 @@ $connect = mysqli_connect('localhost','root','','shopbox');
 
 if(isset($_POST["add_to_cart"]))    
 {
-    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'TRUE')
+    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {
         $sql = "INSERT INTO cart (u_id, p_id, quantity) VALUES (?,?,?)";
 
@@ -20,7 +20,6 @@ if(isset($_POST["add_to_cart"]))
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
                 header("location: cart.php");
-                echo "Successfully added to cart.";
             } else{
                 echo "Error: Something went wrong. Please try again later.";
             }
@@ -30,8 +29,8 @@ if(isset($_POST["add_to_cart"]))
         }
     }
     else 
-    {
-        echo "You are not logged in. Please log in to continue shopping.";        
+    {   
+      header("location:login.php");
     }
 }
 ?>
@@ -41,7 +40,7 @@ if(isset($_POST["add_to_cart"]))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopBox | Product</title>
+    <title>Product | ShopBOX</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" type="image/ico" href="icons/logo_ico.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
