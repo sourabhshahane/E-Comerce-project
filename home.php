@@ -7,7 +7,8 @@
   // Change this total variable to change the number of photos(of products) you want for the slideshow,
   // This page will display products in the automatic slideshow with the given total limit of products in 
   // the descending order of discount values offered for the product.
-  $total = 5;   // Currently five products are displayed in the automatic slideshow
+  $total = 4;   // Currently four products are displayed in the automatic slideshow
+  $total_grid = 24;
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +93,18 @@ img {vertical-align: middle;}
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
+}
+
+ul.products li {
+    width: 200px;
+    height: 500px;
+    display: inline-block;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+    border: 1px solid black;
+    padding: 5px 5px 5px 5px;
+    margin:5px;
 }
 </style>
 </head>
@@ -215,10 +228,42 @@ img {vertical-align: middle;}
       $i = $i + 1;
   }
 ?>
-  
-
 </div>
-
+<br>
+<br>
+<br>
+<h1>
+Items You may be interested in...
+</h1>
+<br>
+<ul class="products">
+<?php
+  
+  $qury = "SELECT * FROM `e_commerce_products` ORDER BY RAND()";
+  
+  $result = mysqli_query($connect, $qury);
+        if(mysqli_num_rows($result) > 0)
+          { 
+            $i = 0;  
+            while($row = mysqli_fetch_array($result))
+            {
+              $str = $row['Offers'];
+              $str = str_replace('%','',$str);
+              if(is_numeric($str) && $i < $total_grid)
+              { ?>
+                  <li>
+                      <a target="_blank" href="product.php?Product_id=<?php echo $row['Product_id'];?>">
+                      <img src=<?php echo $row['Image Urls'];?> style="width:150px; height:150px">
+                      <h4><?php echo $row['Product Title'];?></h4></a>
+                      <p style="color: blue;"> ₹ <?php echo $row['Price'];?></p>
+                  </li>
+                <?php
+                $i = $i + 1;
+              }
+            }
+          }
+  ?>
+</ul>
 <script>
 var slideIndex = 0;
 showSlides();
