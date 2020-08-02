@@ -8,7 +8,7 @@
   // This page will display products in the automatic slideshow with the given total limit of products in 
   // the descending order of discount values offered for the product.
   $total = 4;   // Currently four products are displayed in the automatic slideshow
-  $total_grid = 24;
+  $total_grid = 20;
 ?>
 
 <!DOCTYPE html>
@@ -96,15 +96,15 @@ img {vertical-align: middle;}
 }
 
 ul.products li {
-    width: 200px;
-    height: 500px;
+    width: 310px;
+    height: 425px;
     display: inline-block;
     vertical-align: top;
     *display: inline;
     *zoom: 1;
     border: 1px solid black;
-    padding: 5px 5px 5px 5px;
-    margin:5px;
+    padding: 8px 8px 8px 8px;
+    margin:5px 5px 5px 5px;
 }
 </style>
 </head>
@@ -206,7 +206,7 @@ ul.products li {
               { ?>
                 <div class="mySlides fade">
                   <div class="numbertext"><b>Special Offers: <?php echo $i+1;?> out of <?php echo $total;?> | <?php echo $row['Category']?> | Hurry, Limited period Offers.</b></div>
-                  <a target="_blank" href='product.php?Product_id=<?php echo $row['Product_id']?>'><img src=<?php echo $row['Image Urls'];?> style="width:100%"></a>
+                  <a target="_blank" href='product.php?Product_id=<?php echo $row['Product_id']?>'><img src=<?php echo $row['Image Urls'];?> style="width:100%;"></a>
                   <div class="text"><b>Discount : <?php echo $row['Offers'];?></b></div>
                 </div>
                 <?php
@@ -231,15 +231,15 @@ ul.products li {
 </div>
 <br>
 <br>
-<br>
 <h1>
 Items You may be interested in...
 </h1>
 <br>
+<br>
 <ul class="products">
 <?php
   
-  $qury = "SELECT * FROM `e_commerce_products` ORDER BY RAND()";
+  $qury = "SELECT * FROM `e_commerce_products` ORDER BY rand()";
   
   $result = mysqli_query($connect, $qury);
         if(mysqli_num_rows($result) > 0)
@@ -247,13 +247,11 @@ Items You may be interested in...
             $i = 0;  
             while($row = mysqli_fetch_array($result))
             {
-              $str = $row['Offers'];
-              $str = str_replace('%','',$str);
-              if(is_numeric($str) && $i < $total_grid)
+              if($i < $total_grid)
               { ?>
                   <li>
                       <a target="_blank" href="product.php?Product_id=<?php echo $row['Product_id'];?>">
-                      <img src=<?php echo $row['Image Urls'];?> style="width:150px; height:150px">
+                      <img src=<?php echo $row['Image Urls'];?> style="width:200px; height:200px;">
                       <h4><?php echo $row['Product Title'];?></h4></a>
                       <p style="color: blue;"> ₹ <?php echo $row['Price'];?></p>
                   </li>
@@ -282,7 +280,7 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 4000); // Change image every 2 seconds
+  setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
 </script>
 
