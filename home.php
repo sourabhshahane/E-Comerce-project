@@ -3,7 +3,11 @@
   require_once "config.php";
   session_start();
   $connect = mysqli_connect('localhost','root','','shopbox');
-  $total = 2;
+
+  // Change this total variable to change the number of photos(of products) you want for the slideshow,
+  // This page will display products in the automatic slideshow with the given total limit of products in 
+  // the descending order of discount values offered for the product.
+  $total = 5;   // Currently five products are displayed in the automatic slideshow
 ?>
 
 <!DOCTYPE html>
@@ -188,7 +192,7 @@ img {vertical-align: middle;}
               if(is_numeric($str) && $i < $total)
               { ?>
                 <div class="mySlides fade">
-                  <div class="numbertext"><b>Special Offers: <?php echo $i+1;?> out of <?php echo $total;?>... Hurry up, Limitied Period only...</b></div>
+                  <div class="numbertext"><b>Special Offers: <?php echo $i+1;?> out of <?php echo $total;?> | <?php echo $row['Category']?> | Hurry, Limited period Offers.</b></div>
                   <a target="_blank" href='product.php?Product_id=<?php echo $row['Product_id']?>'><img src=<?php echo $row['Image Urls'];?> style="width:100%">
                   <div class="text"><b>Discount : <?php echo $row['Offers'];?></b></div>
                 </div>
