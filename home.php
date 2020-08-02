@@ -206,7 +206,7 @@ ul.products li {
               { ?>
                 <div class="mySlides fade">
                   <div class="numbertext"><b>Special Offers: <?php echo $i+1;?> out of <?php echo $total;?> | <?php echo $row['Category']?> | Hurry, Limited period Offers.</b></div>
-                  <a target="_blank" href='product.php?Product_id=<?php echo $row['Product_id']?>'><img src=<?php echo $row['Image Urls'];?> style="width:100%">
+                  <a target="_blank" href='product.php?Product_id=<?php echo $row['Product_id']?>'><img src=<?php echo $row['Image Urls'];?> style="width:100%"></a>
                   <div class="text"><b>Discount : <?php echo $row['Offers'];?></b></div>
                 </div>
                 <?php
