@@ -129,7 +129,7 @@ $connect = mysqli_connect('localhost','root','','shopbox');
             {
         ?>  
                 <div class="box" style="height:350px">
-                    <a href="../product.php?Product_id=<?php echo $row['Product_id'];?>">
+                    <a target="_blank" href="../product.php?Product_id=<?php echo $row['Product_id'];?>">
                     <img src="<?php echo $row['Image Urls'];?>" class="img-responsive"/><br>
                     <h3 class="name"><?php echo $row['Product Title'];?></h3></a>
                     <h4><b>Brand name : </b><?php echo $row['Brand'];?></h4>
