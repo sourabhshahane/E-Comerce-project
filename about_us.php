@@ -165,10 +165,7 @@
 	 <img id = "image2" src = "https://i.pinimg.com/originals/e0/74/09/e0740900279f738e2a3cf811d4e83e05.jpg"/>
 	 <div class="box">
 		<h1><em>About ShopBOX</em></h1>
-		 <p id = "para2">&nbsp; &nbsp; &nbsp; &nbsp; <strong>ShopBox</strong> is an E-Commerce(Electronic Commerce) website for buying services through internet. It includes all purpose cleaners, baby bath and hygiene, bath and shower, chips, Namkeen & snacks, chocalates, biscuits, sweets, cooking sauces, 
-			 vinegar, creams, lotions, skin care, dals and pulses, deos, perfumes and talc, detergents and dishwash, drinks and beverages, fragrances, deos, ghee and oils, grocery and gourmet foods, hair care, jams and honey, makeup, noodles and pasta, oral care, pasta, soup
-			 and noodles, pickels and chutney, spreads and dips, shoe polish, skin care, snacks, dry fruits, nuts, soaps and body wash, stationary, tea. Amazing offers are available on every product so you will definitely save your money. You can purchase required product by using online payment method or 
-		   you can also place order by using cash on delivery. We provide fastest home delivery within less or no price.<p>
+		 <p id = "para2">&nbsp; &nbsp; &nbsp; &nbsp; <strong>ShopBox</strong> is an ShopBox is an E-Commerce(Electronic Commerce) website for buying services through internet. Electronic commerce draws an technologies such as mobile commerce, electronic fund transfer, internet marketing, online transaction processing,etc. Our website is very helpful in these highly growing E-commerce marketing era. It includes all purpose cleaners, Namkeen & snacks, skin care, perfumes and talc, detergents and dishwash, drinks and beverages, grocery, hair care, makeup, spreads and dips, shoe polish, stationary, tea,etc. Amazing offers are available on every product so you will definitely save your money. You can purchase required product by using online payment method or you can also place order by using cash on delivery. We provide fastest home delivery within less or no price.<p>
 		<br>
 	 </div>
     
