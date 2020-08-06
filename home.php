@@ -179,7 +179,7 @@ ul.products li {
       </ul>
     </div>
   </nav>
-<div class="container" style="margin-top:75px">
+<div class="all" style="margin-top:75px">
   <?php 
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {
