@@ -110,7 +110,7 @@ ul.products li {
 </head>
 
 <body>     
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="home.php"><span><img src="icons/logo_ico.png" width="30px" height="auto"> &nbsp ShopBox.com</span></a>
@@ -176,7 +176,7 @@ ul.products li {
       </ul>
     </div>
   </nav>
-
+<div class="container" style="margin-top:75px">
   <?php 
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {
@@ -284,6 +284,6 @@ function showSlides() {
 }
 </script>
 
-
+</div>
 </body>
 </html>
