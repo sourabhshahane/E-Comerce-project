@@ -2,6 +2,7 @@
   // Include config file
   require_once "config.php";
   session_start();
+  $stock = 0;
   $connect = mysqli_connect('localhost','root','','shopbox');
 
   if(isset($_GET["action"]))
@@ -107,57 +108,83 @@
         $result = mysqli_query($connect, $qury);
         if(mysqli_num_rows($result) > 0) 
         {
-                ?>
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                        <tr> 
-                            <th>Product image</th> 
-                            <th width="40%">Item Name</th>  
-                            <th width="10%">Quantity</th>  
-                            <th width="20%">Price</th>  
-                            <th width="15%">Total</th>  
-                            <th width="5%">Action</th>  
-                        </tr>  
+        ?>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+            <tr> 
+                <th>Product image</th> 
+                <th width="40%">Item Name</th>  
+                <th width="10%">Quantity</th>  
+                <th width="20%">Price</th>  
+                <th width="15%">Total</th>  
+                <th width="5%">Action</th>  
+            </tr>  
         <?php
             $total = 0;  
             $orders = array();
             while($row = mysqli_fetch_array($result))
             {
+                if ($row['Stock Availibility'] == 'FALSE') 
+                {
+                    $stock = 1;    
+                }
                 array_push($orders, $row['order_id']);
         ?> 
-                        <tr>
-                            <td><img src="<?php echo $row['Image Urls'];?>" style="width: 100px;"></td>
-                            <td><?php echo $row['Product Title'];?></td>  
-                            <td><?php echo $row['quantity']; ?></td>  
-                            <td>₹ <?php echo $row['Price'];?></td>
-                            <td>₹ <?php echo number_format($row["quantity"] * $row["Price"],2);?></td>  
-                            <td><a href="cart.php?action=delete&order_id=<?php echo $row['order_id'];?>"><span class="btn btn-danger">Remove</span></a></td>
-                        </tr>
-                        <?php $total = $total + ($row["quantity"] * $row['Price']);   
+                <tr>
+                    <td><img src="<?php echo $row['Image Urls'];?>" style="width: 100px;"></td>
+                    <?php 
+                        if ($row['Stock Availibility'] == 'FALSE') 
+                        {?>
+                            <td><?php echo $row['Product Title'];
+                            echo "<h5 style=color:red;'><b>(Not available)<b></h5>"; ?></td>          
+                        <?php
+                        }
+                        else 
+                        {?>
+                            <td><?php echo $row['Product Title'];?></td>
+                        <?php
+                        }
+                    ?>  
+                    <td><?php echo $row['quantity'];?></td>
+                    <td>₹ <?php echo $row['Price'];?></td>
+                    <td>₹ <?php echo number_format($row["quantity"] * $row["Price"],2);?></td>  
+                    <td><a href="cart.php?action=delete&order_id=<?php echo $row['order_id'];?>"><span class="btn btn-danger">Remove</span></a></td>
+                </tr>
+                    <?php $total = $total + ($row["quantity"] * $row['Price']);   
             }
             ?>
-                        <tr>
-                            <td></td>
-                            <td></td>  
-                            <td></td>  
-                            <td><h2>Grand Total</h2></td>
-                            <td><h2>₹ <?php echo number_format($total);?></h2></td>  
-                            <td><a href="thanks.php?action=purchase&order_id=<?php 
-                            $i = 0;
-                            while($i < count($orders))
+                <tr>
+                    <td></td>
+                    <td></td>  
+                    <td></td>  
+                    <td><h2>Grand Total</h2></td>
+                    <td><h2>₹ <?php echo number_format($total);?></h2></td>  
+                    <?php 
+                    if ($stock == 0) 
+                    {?>
+                        <td><a href="thanks.php?action=purchase&order_id=<?php
+                        $i = 0;
+                        while($i < count($orders))
+                        {
+                            echo $orders[$i];
+                            if($i + 1 != count($orders))
                             {
-                                echo $orders[$i];
-                                if($i + 1 != count($orders))
-                                {
-                                    echo ",";
-                                }
-                                $i = $i + 1;
+                                echo ",";
                             }
-                            ?>"><span class="btn btn-success">Buy now</span></a></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>  
+                            $i = $i + 1;
+                        }
+                        ?>"><span class="btn btn-success">Buy now</span></a></td>
+                    <?php
+                    }
+                    else 
+                    {?>
+                        <h3><?php echo "Some products are out of stock, You can remove them to continue."; ?></h3>
+                    <?php    
+                    }?>
+                </tr>
+            </table>
+        </div>
+    </div>  
     <?php
         }
         else 
