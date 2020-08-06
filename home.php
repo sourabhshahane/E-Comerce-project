@@ -102,7 +102,10 @@ ul.products li {
     vertical-align: top;
     *display: inline;
     *zoom: 1;
-    border: 1px solid black;
+    border-bottom: 7px solid #858585;
+    border-right: 7px solid #858585;
+    border-radius: 8px;
+    background-color: #d4d4d4;
     padding: 8px 8px 8px 8px;
     margin:5px 5px 5px 5px;
 }
